@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Slap Object Game</title>
+  <link rel="shortcut icon" href="assetts/images/fav-icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/game.css">
+
+</head>
+
+<body class="container-fluid">
+  <section class="row">
+    <div class="col text-center py-5">
+      <h2>Slap The Bear</h2>
+    </div>
+  </section>
+  <main class="row custom-height ">
+    <div class="col d-flex flex-column justify-content-end">
+      <div class="row">
+        <div class="col-3 text-left">
+          <h3>Monster</h3>
+          <h5 id="monsterName"></h5>
+          <div>
+            <p>age: <span id="monsterAge"></span></p>
+            <p>hunger: <span id="monsterHunger"></span></p>
+            <p>health: <span id="monsterHealth"></span></p>
+            <div class="progressBar"><span></span></div>
+          </div>
+        </div>
+        <div class="col-6 d-flex flex-column justify-content-end">
+          <div class="row">
+            <div class="col d-flex justify-content-center">
+              <img id="bearPicture" class="img-fluid" src="assets/images/bear3s.png" alt="">
+            </div>
+          </div>
+          <div class="row">
+            <div id="actions" class="col d-flex justify-content-around btn-group-sm">
+              <button id="punch" type="button" class="btn bg-dark text-white">punch</button>
+              <button id="kick" type="button" class="btn bg-dark text-white">kick</button>
+              <button id="slap" type="button" class="btn bg-dark text-white">slap</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-3 d-flex flex-column align-items-end">
+          <h3>Player</h3>
+          <h5 id="playerName"></h5>
+          <div class="w-100">
+            <p class="text-right">health: <span id="playerHealth"></span></p>
+            <div class="progressBar"><span></span></div>
+          </div>
+          <p class="text-right">experience: <span id="playerExperience"></span></p>
+          <button id="knife" class="btn bg-dark btn-sm text-white mt-2" type="button" data-upgrade="slap">Knife</button>
+          <button id="sword" class="btn bg-dark btn-sm text-white mt-2" type="button" data-upgrade="punch">Sword</button>
+          <button id="armor" class="btn bg-dark btn-sm text-white mt-2" type="button" data-upgrade="armor">Armor</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="row py-3 mt-3">
+    <div class="col d-flex justify-content-between">
+      <p>games: <span id="games">0</span></p>
+      <p>wins: <span id="wins">0</span></p>
+      <p>last hit: <span id="lastHitValue">0</span></p>
+      <button id="reset" type="button" class=" btn btn-sm bg-dark text-white">Reset</button>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script type="module" src="app/main.js"></script>
+</body>
+
+</html>

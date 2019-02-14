@@ -40,43 +40,42 @@ export default class Player {
     }
   }
   setName(event) {
-      if ($("#setPlayerName").val()) {
-        player.name = $("#setPlayerName").val();
-      } else {
-        player.name = "Soldier";
-      }
-      $("#nameBox").remove();
-      game.updatePage();
-    },
-    setAddons(event) {
-      let value = event.target.dataset.upgrade;
+    if ($("#setPlayerName").val()) {
+      player.name = $("#setPlayerName").val();
+    } else {
+      player.name = "Soldier";
+    }
+    $("#nameBox").remove();
+    game.updatePage();
+  }
+  setAddons(event) {
+    let value = event.target.dataset.upgrade;
 
-      if (player.experience >= player.addons[value].cost) {
-        player.addons[value].set = true;
-        event.target.disabled = true;
-        player.experience -= player.addons[value].cost;
-        $(`#${value}`).text(event.target.id);
-      } else {
-        $(".col-6").prepend(
-          `<h5 id='drop'>You Need ${player.addons[value].cost -
+    if (player.experience >= player.addons[value].cost) {
+      player.addons[value].set = true;
+      event.target.disabled = true;
+      player.experience -= player.addons[value].cost;
+      $(`#${value}`).text(event.target.id);
+    } else {
+      $(".col-6").prepend(
+        `<h5 id='drop'>You Need ${player.addons[value].cost -
           player.experience} More Experience</h5>`
-        );
-        setTimeout(() => {
-          $("#drop").remove();
-        }, 800);
-      }
-      game.updatePage();
-    },
-    addonMonitor() {
-      for (let addon in player.addons) {
-        let tool = player.addons[addon];
-        if (!tool.timer) {
-          tool.set = false;
-          $(`#${tool.name}`).attr("disabled", false);
-          tool.timer = tool.resetTimer;
-          $(`#${addon}`).text(addon);
-        }
+      );
+      setTimeout(() => {
+        $("#drop").remove();
+      }, 800);
+    }
+    game.updatePage();
+  }
+  addonMonitor() {
+    for (let addon in player.addons) {
+      let tool = player.addons[addon];
+      if (!tool.timer) {
+        tool.set = false;
+        $(`#${tool.name}`).attr("disabled", false);
+        tool.timer = tool.resetTimer;
+        $(`#${addon}`).text(addon);
       }
     }
-};
+  }
 }
